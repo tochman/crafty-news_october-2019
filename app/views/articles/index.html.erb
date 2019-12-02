@@ -1,1 +1,5 @@
-<h1>A breaking News Article</h1>
+<h1>Here are our articles</h1>
+
+<% @articles.each do |article| %>
+  <%= article.title %>
+<% end %>

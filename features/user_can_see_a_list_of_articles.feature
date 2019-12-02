@@ -6,10 +6,10 @@ Feature: List aricles on index page
 
   Background:
     Given the following articles exist:
-      | title                   | content                |
-      | A breaking News Article | Some important content |
-      | Some other news         | Some other content     |
-      
+      | title                   | 
+      | A breaking News Article | 
+      | Some other news         | 
+
   Scenario: Viewing a list of articles
     When I am on the index page
     Then I should see "A breaking News Article"
