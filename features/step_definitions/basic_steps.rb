@@ -4,8 +4,8 @@ When('I am on the index page') do
   visit root_path
 end
 
-When("I fill in {string} with {string}") do |string, string2|
-  pending # Write code here that turns the phrase above into concrete actions
+When("I fill in {string} with {string}") do |input, content|
+  fill_in input, with: content
 end
 
 When("I click on {string}") do |element|
