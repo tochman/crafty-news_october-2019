@@ -1,1 +1,1 @@
-## Demo App for CA Cohort of October 2019
+## Rails Demo App for CA Cohort of October 2019 s
