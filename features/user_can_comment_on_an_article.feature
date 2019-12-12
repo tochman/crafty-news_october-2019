@@ -16,5 +16,5 @@ Feature: User can comment on an article
     And I fill in "Comment" with "This is fake news!!!!"
     And I click on "Submit comment"
     Then I should see "Commented"
-    And I should be at "A breaking News Article"
+    And I should be at "A breaking News Article" page
     And I should see "This is fake news!!!!"
