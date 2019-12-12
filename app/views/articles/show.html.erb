@@ -7,6 +7,10 @@
   <%= @article.content%>
 </p>
 
+<% @article.comments.each do |comment| %>
+  <p> <%= comment.body %> </p>
+<% end %>
+
 <%= form_with(model: [ @article, @article.comments.build], local: true)  do |form|%>
   <%= form.text_field :body, placeholder: "Comment"%>
   <%= form.submit "Submit comment"%>

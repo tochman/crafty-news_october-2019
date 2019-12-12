@@ -18,3 +18,10 @@ Feature: User can comment on an article
     Then I should see "Commented"
     And I should be at "A breaking News Article" page
     And I should see "This is fake news!!!!"
+
+  Scenario: User can not leave empty comment
+    When I click on "A breaking News Article"
+    And I fill in "Comment" with ""
+    And I click on "Submit comment"
+    Then I should see "Something went wrong"
+    And I should be at "A breaking News Article" page
