@@ -3,5 +3,6 @@
   <%= form.text_field :title%>
   <%= form.label :content%>
   <%= form.text_area :content%>
+  <%#= form.select :category_id, Category.all.collect {|category| [category.name, category.id]}%>
   <%= form.submit "Create Article"%>
 <% end %>
