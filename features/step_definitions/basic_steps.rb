@@ -14,6 +14,6 @@ end
 
 
 Given("I am logged in as {string}") do |email|
-  user = create(:user, email: email, password: 'whatever')
+  user = User.find_by(email: email) || create(:user, email: email, password: 'whatever') 
   login_as user
 end
