@@ -24,7 +24,10 @@ Feature: title
     Then I should be on the edit page for "Big news"
 
 
-  Scenario: User can NOT edit another users article
+  Scenario: User can NOT see edit button on another users article
     And I click on "Small news"
-    And I click on "Edit"
+    Then I should not see "Edit"
+
+  Scenario: User can NOT edit another users article
+    And I am on the edit page for "Small news"
     Then I should see "You are not authorized to do that"

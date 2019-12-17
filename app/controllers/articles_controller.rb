@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
+  before_action :authenticate_user!, only: %i[new create edit update]
   def index
     @articles = Article.all
   end
@@ -26,14 +26,20 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    if @article.author == current_user
+      render :edit
+    else
+      redirect_to root_path, notice: 'You are not authorized to do that'
+    end
   end
 
   def update
     @article = Article.find(params[:id])
-    if @article.update_attributes(article_params) 
+    if @article.update_attributes(article_params)
       redirect_to article_path(@article)
     end
   end
+
   private
 
   def article_params
