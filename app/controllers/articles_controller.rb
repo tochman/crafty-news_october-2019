@@ -26,11 +26,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
-    if @article.author == current_user
-      render :edit
-    else
-      redirect_to root_path, notice: 'You are not authorized to do that'
-    end
+    authorize(@article)
   end
 
   def update
