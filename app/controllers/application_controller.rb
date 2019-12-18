@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def not_authorized
-    redirect_to root_path, notice: 'You are not authorized to do that'
+  def not_authorized(exception)
+    if exception.policy.class == ArticlePolicy && exception.query == 'show?'
+      redirect_to root_path, notice: 'You have to purchase a subscrition to read this article'
+    else
+      redirect_to root_path, notice: 'You are not authorized to do that'
+    end
   end
 end

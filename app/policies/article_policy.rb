@@ -12,4 +12,8 @@ class ArticlePolicy < ApplicationPolicy
   def edit?
     new?
   end
+
+  def show?
+    @user && @user.subscriber?
+  end
 end
