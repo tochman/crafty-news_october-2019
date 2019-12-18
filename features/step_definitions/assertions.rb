@@ -20,3 +20,7 @@ Then('I should be on the edit page for {string}') do |article_title|
   article = Article.find_by(title: article_title)
   expect(current_path).to eq edit_article_path(article)
 end
+
+Then("I should be on the purchase subscription page") do
+  expect(current_path).to eq new_subscription_path
+end
