@@ -15,8 +15,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    article = Article.create(article_params)
-
+    article = Article.create(article_params.merge(author: current_user))
     if article.persisted?
       redirect_to article, notice: 'Article was successfully created.'
     else

@@ -3,8 +3,6 @@ Feature: User can create articles
   In order to add relevant content to my news service
   I would like to be able to create articles
 
-
-
   Scenario: Non logged in user receives an error message
     Given I am on the index page
     And I click on "New Article"
