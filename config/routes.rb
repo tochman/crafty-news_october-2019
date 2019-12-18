@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+  devise_for :users
   root controller: :articles, action: :index
-  resources :articles, only: [:new, :create, :show]
+  resources :articles, except: :index
+  resources :subscriptions, only: %i[new create]
 end
