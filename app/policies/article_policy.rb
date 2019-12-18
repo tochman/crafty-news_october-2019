@@ -6,14 +6,14 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def new?
-    @record.author == @user
+    @user
   end
 
   def edit?
-    new?
+    @record.author == @user
   end
 
   def show?
-    @user && @user.subscriber?
+    @user && @user.subscriber? || @record.author == @user
   end
 end

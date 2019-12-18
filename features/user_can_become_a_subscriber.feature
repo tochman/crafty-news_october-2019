@@ -7,10 +7,11 @@ Feature: Feature name
     Given the following users exist
       | email           | subscriber |
       | thomas@craft.se | false      |
+      | author@craft.se | false      |
 
     And the following articles exist
       | title    | author          |
-      | Big news | thomas@craft.se |
+      | Big news | author@craft.se |
 
 
   Scenario: User can "purchase" a subscription
