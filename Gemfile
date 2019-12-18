@@ -8,7 +8,7 @@ ruby '2.5.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 gem 'pundit'
 gem 'rails', '~> 6.0.1'
 gem 'sass-rails', '>= 6'
