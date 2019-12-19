@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   def create
     article = Article.find(params[:article_id])
-    
-    comment = article.comments.create(body: comment_params[:body], user: current_user)
+
+    comment = article.comments.create(comment_params.merge(user: current_user))
 
     if comment.persisted?
-      flash[:notice] = "Commented"
+      flash[:notice] = 'Your comment was successfully submited'
     else
-      flash[:alert] = "Something went wrong"
+      flash[:alert] = 'Something went wrong'
     end
     redirect_to article_path(article)
   end
