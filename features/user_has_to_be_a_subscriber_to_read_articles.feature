@@ -19,7 +19,6 @@ Feature: Feature name
     And I click on "Big news"
     Then I should see "You have to purchase a subscrition to read this article"
 
-
   Scenario: Subscriber can access article content
     Given I am logged in as "thomas@craft.se"
     And I am on the index page

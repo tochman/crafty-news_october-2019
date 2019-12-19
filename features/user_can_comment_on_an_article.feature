@@ -4,7 +4,11 @@ Feature: User can comment on an article
   I would like to be able to comment on an article
 
   Background:
-    Given the following articles exist:
+    Given the following users exist
+      | email            | subscriber |
+      | thomas@craft.com | true       |
+
+    And the following articles exist:
       | title                   |
       | A breaking News Article |
       | Some other news         |
