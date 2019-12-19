@@ -28,5 +28,8 @@ module CraftyNewsOctober2019
       generate.routing_specs false
       generate.controller_specs false
     end
+
+    config.stripe.secret_key = Rails.application.credentials.stripe[:secret_key]
+    config.stripe.publishable_key = Rails.application.credentials.stripe[:publishable_key]
   end
 end

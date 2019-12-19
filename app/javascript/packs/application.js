@@ -9,9 +9,33 @@ require("@rails/activestorage").start()
 require("channels")
 
 
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
+document.addEventListener('turbolinks:load', () => {
+  let stripeForm = document.getElementById('subscription_form')
+
+  if (stripeForm) {
+    console.warn('hello')
+    const stripe = Stripe('pk_test_QicERB8w3kyqaYW3hUUQylRH')
+    const elements = stripe.elements()
+    let cardNumber = elements.create('cardNumber')
+    let cardExpiry = elements.create('cardExpiry')
+    let cardCvc = elements.create('cardCvc')
+
+    cardNumber.mount('#card-number')
+    cardExpiry.mount('#card-expiry')
+    cardCvc.mount('#card-cvc')
+
+    stripeForm.addEventListener('submit', () => {
+      event.preventDefault()
+
+      stripe.createToken(cardNumber, cardExpiry, cardCvc)
+        .then(response => {
+          const hiddenField = document.createElement('input')
+          hiddenField.setAttribute('type', 'hidden')
+          hiddenField.setAttribute('name', 'stripeToken')
+          hiddenField.setAttribute('value', response.token.id)
+          stripeForm.appendChild(hiddenField)
+          stripeForm.submit()
+        })
+    })
+  }
+})
