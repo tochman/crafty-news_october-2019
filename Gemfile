@@ -14,6 +14,7 @@ gem 'rails', '~> 6.0.1'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
+gem 'stripe-rails'
 
 group :development, :test do
   gem 'coveralls', require: false
@@ -26,6 +27,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'selenium-webdriver'
   gem 'webdrivers', '~> 4.0'
+  gem 'stripe-ruby-mock', '~> 3.0.0', require: 'stripe_mock'
 end
 
 group :development do

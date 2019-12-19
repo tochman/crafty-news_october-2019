@@ -37,6 +37,13 @@ Capybara.javascript_driver = :chrome
 World FactoryBot::Syntax::Methods
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
-Warden.test_mode!
+Before do
+  Warden.test_mode!
+  StripeMock.start
+end
+
 World Warden::Test::Helpers
-After { Warden.test_reset! }
+After do
+  Warden.test_reset!
+  StripeMock.stop
+end

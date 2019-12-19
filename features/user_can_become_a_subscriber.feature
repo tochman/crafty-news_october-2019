@@ -19,9 +19,11 @@ Feature: Feature name
     Given I am logged in as "thomas@craft.se"
     And I am on the index page
     And I click on "Big news"
+    Then wait 2 seconds
     And I fill in the Stripe form field "Card Number" with "4242424242424242"
     And I fill in the Stripe form field "Expiry date" with "1220"
     And I fill in the Stripe form field "CVC" with "123"
     And I click on "Subscribe!"
+    Then wait 1 seconds
     Then I should be on the "Big news" page
     And I should see "Thank you for becoming a subscriber"

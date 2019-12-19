@@ -1,1 +1,10 @@
-<%= button_to 'Subscribe!', subscriptions_path(article_id: @article)%>
+<%#= button_to 'Subscribe!', subscriptions_path(article_id: @article)%>
+ 
+<%= form_with url: subscriptions_path(article_id: @article), id: :subscription_form,  method: :post, local: true do |form| %>
+
+  <div id="card-number"></div>
+  <div id="card-expiry"></div>
+  <div id="card-cvc"></div>
+
+  <%= form.submit 'Subscribe!' %>
+<% end %>
