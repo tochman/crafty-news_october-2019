@@ -8,7 +8,7 @@ Feature: User can comment on an article
       | title                   | 
       | A breaking News Article | 
       | Some other news         | 
-
+    And I am logged in as "thomas@craft.com"
     And I am on the index page
 
   Scenario: User can comment successfully

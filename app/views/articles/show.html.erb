@@ -7,11 +7,15 @@
   <%= @article.content%>
 </p>
 
-<% @article.comments.each do |comment| %>
-  <p> <%= comment.body %> </p>
-<% end %>
-
 <%= form_with(model: [ @article, @article.comments.build], local: true)  do |form|%>
   <%= form.text_field :body, placeholder: "Comment"%>
   <%= form.submit "Submit comment"%>
 <% end %>
+
+<% @article.comments.each do |comment| %>
+  <p> <%= comment.body %> </p>
+<% end %>
+
+
+
+<%= link_to 'Edit Article', edit_article_path(@article) if user_signed_in? && @article.author == current_user%>
