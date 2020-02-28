@@ -2,7 +2,7 @@ class Api::ArticlesController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
     articles = Article.all
-    render json: articles
+    render json: articles, each_serializer: Articles::IndexSerializer
   end
 
 
