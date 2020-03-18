@@ -1,8 +1,7 @@
 class Api::ArticlesController < ApplicationController
-  skip_before_action :verify_authenticity_token
+	skip_before_action :verify_authenticity_token
   def index
-    articles = Article.all
-    render json: articles
+    @articles = Article.all
   end
 
 
@@ -15,7 +14,6 @@ class Api::ArticlesController < ApplicationController
   end
 
   def show
-    article = Article.find(params[:id])
-    render json: article
+		@article = Article.find(params[:id])
   end
 end
