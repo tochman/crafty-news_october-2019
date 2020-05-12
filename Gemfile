@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 gem 'stripe-rails'
 gem 'jbuilder'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'coveralls', require: false
