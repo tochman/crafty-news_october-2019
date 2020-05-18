@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include DeviseTokenAuth::Concerns::SetUserByToken
   include Pundit
 
   rescue_from Pundit::NotAuthorizedError, with: :not_authorized

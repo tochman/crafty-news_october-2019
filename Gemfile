@@ -7,6 +7,7 @@ ruby '2.5.1'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
+gem 'devise_token_auth'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'
 gem 'pundit'
